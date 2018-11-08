@@ -1,13 +1,20 @@
+# game set up
+
 class Game
   def initialize
-    @players = [
-      Player.new('player1'),
-      Player.new('player2')
-    ]
-  @turn_manager = TurnManager.new(@players)
+    welcome_message
+    @players = [Player.new("Player 1"), Player.new("Player 2")]
+    @current_round = Round.new(self, @players, 0)
+  end
 
-  def play
-    while (not game_over?) do
-      turn = @turn_manager.next_turn
+  def welcome_message
+    puts "Welcome to Math_Game, where math happens. Have a day."
+  end
+
+  def end_game
+    puts "Well, that happened. Game over"
+    exit
+  end
+end
 
 
